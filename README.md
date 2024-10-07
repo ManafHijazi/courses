@@ -30,17 +30,6 @@
 - Add and manage courses
 - View available courses and watch course videos
 
-## 🖼️ Screenshots
-
-![Mo3eed Screenshot](static/images/screenshot.png)
-
-## 🚀 Getting Started
-
-Follow these steps to get a copy of Mo3eed running on your local machine.
-
-### 📋 Prerequisites
-
 Before you begin, ensure you have met the following requirements:
 - **Python 3.9+**
 - **Flask** and other necessary libraries (see `requirements.txt` for details)
-- **Git** installed on your machine
