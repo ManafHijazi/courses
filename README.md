@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="static/images/favicon.png" alt="Mo3eed Logo" width="100"/>
-</p>
+
 
 <h1 align="center">Mo3eed - A Course Management System</h1>
 
