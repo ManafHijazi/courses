@@ -1,6 +1,21 @@
+"""Add first name, last name, and profile picture to User model
+
+Revision ID: 662cd276c0af
+Revises:
+Create Date: 2024-10-07 12:59:05.661943
+
+"""
 from alembic import op
 import sqlalchemy as sa
 from sqlalchemy import inspect
+
+
+# revision identifiers, used by Alembic.
+revision = '662cd276c0af'
+down_revision = None
+branch_labels = None
+depends_on = None
+
 
 def upgrade():
     # Check if column already exists
@@ -17,3 +32,5 @@ def downgrade():
     op.drop_column('user', 'first_name')
     op.drop_column('user', 'last_name')
     op.drop_column('user', 'profile_picture')
+
+    # ### end Alembic commands ###
