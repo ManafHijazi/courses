@@ -1,0 +1,568 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #678ee2, #72dfe6);
+  min-height: 100vh;
+  display: block;
+  margin: 0;
+}
+
+.app-title-wrapper {
+  color: white;
+  margin-right: 2rem;
+  margin-left: 2.5rem;
+}
+
+.home-wrapper {
+  color: white;
+}
+.home-wrapper button {
+  margin-left: 2rem;
+}
+
+.home-wrapper h1 {
+  padding-left: 2rem;
+}
+.home-wrapper p {
+  padding-left: 2rem;
+}
+
+.no-courses-wrapper {
+  margin-top: 1rem;
+}
+
+.content {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 83vh;
+}
+
+.logout-button button {
+  background: #f44336;
+  font-size: 16px;
+  min-width: 5rem;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+/* Header and Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 20px;
+  min-height: 5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+.admin-wrapper {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-actions-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-wrapper button {
+  color: white;
+  max-width: 15rem;
+  background: #ff9800;
+}
+
+.about-container {
+  color: white;
+}
+
+.about-container h1 {
+  margin-bottom: 1rem;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.navbar-right span {
+  color: white;
+  margin-right: 15px;
+}
+
+.admin-links {
+  margin-left: 15px;
+  color: #ff9800;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+footer .app-name {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.footer-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+footer .footer-links {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  flex-direction: column;
+}
+
+footer .footer-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+footer .footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Form Container (Card) */
+.form-container {
+  overflow: hidden;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px; /* Smaller radius */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  max-width: 400px;
+  width: 100%;
+  margin: 50px auto; /* Center the form */
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.form-container.add-course-wrapper {
+  max-width: 900px;
+  text-align: left;
+}
+
+.form-container.course-management-wrapper {
+  max-width: 1000px;
+  text-align: left;
+}
+
+.form-container.edit-course-wrapper {
+  max-width: 1000px;
+  text-align: left;
+}
+
+.user-management-wrapper table {
+  width: 100%;
+}
+
+.user-management-wrapper td {
+  margin-top: 1rem;
+}
+
+.edit-button {
+  background: #ff9800;
+  width: 6rem;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.actions-cell a {
+  margin-top: 0 !important;
+}
+
+.delete-button {
+  background: #f44336;
+  width: 6rem;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.actions-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 0;
+}
+
+.form-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+}
+nav div {
+  display: flex; /* Ensure links stay on the same line */
+  align-items: center;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+.navbar-right img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.navbar-right span {
+  color: white; /* Make user name white */
+  margin-right: 15px;
+}
+.admin-links {
+  margin-left: 15px;
+  color: #ff9800;
+}
+.add-course-button {
+  color: white;
+  margin-top: 20px;
+  display: inline-block;
+}
+.add-course-button.manage {
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+}
+
+.course-management-button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.snackbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  font-size: 14px;
+  transform: translateX(-50%);
+  padding: 20px 30px;
+  color: white;
+  list-style: none;
+}
+.success {
+  border-radius: 1rem;
+  padding: 20px 30px;
+  background-color: #4caf50;
+}
+.error {
+  border-radius: 1rem;
+  padding: 20px 30px;
+  background-color: #f44336;
+}
+
+footer .app-name {
+  font-size: 2rem; /* Bigger, fancier font size */
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+footer ul li {
+  margin-bottom: 5px;
+}
+
+footer ul a {
+  color: white;
+  text-decoration: none;
+}
+
+footer ul a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Input Fields */
+input[type='text'],
+input[type='password'],
+input[type='file'],
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px; /* Smaller radius */
+  border: 1px solid #ccc; /* Slight border for inputs */
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+input[type='text']:focus,
+input[type='password']:focus,
+textarea:focus,
+select:focus {
+  background-color: rgba(255, 255, 255, 1);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Links */
+a {
+  color: #5b86e5;
+  text-decoration: none;
+  display: block;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Course Card Styling */
+.course-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+  max-height: calc(100vh - 19rem);
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+.course-card {
+  cursor: pointer;
+  background: white; /* Transparent with subtle background */
+  border-radius: 15px;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Softer shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(15px); /* Adds a frosted glass effect */
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  max-height: 25rem;
+  min-height: 25rem;
+}
+
+.course-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.course-card h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 15px 0;
+  text-align: left;
+  padding: 0 15px;
+}
+
+.course-card a {
+  margin: 0 !important;
+  text-decoration: none !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.course-card p {
+  color: #333;
+  padding: 0 15px;
+  font-size: 1rem;
+  text-align: left;
+  max-height: 6rem;
+  overflow-y: auto;
+}
+
+.course-card a {
+  background-color: #5b86e5;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  margin-top: 20px;
+  display: inline-block;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.course-card a:hover {
+  background-color: #72dfe6;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 16px 30px rgba(0, 0, 0, 0.2);
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.course-card:hover::before {
+  opacity: 1;
+}
+
+/* Course Management Table */
+.course-management-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+
+.course-management-wrapper th,
+.course-management-wrapper td {
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.course-management-wrapper th {
+  background-color: #333;
+  color: white;
+}
+
+.course-management-wrapper tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.course-management-wrapper tr:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.edit-button,
+.delete-button {
+  background-color: #ff9800;
+  padding: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.delete-button {
+  background-color: #f44336;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Custom Scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* Background of the scrollbar track */
+  border-radius: 1rem; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(194, 225, 246); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* A slight border around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(194, 225, 246); /* Darker shade on hover */
+}
+
+/* Scrollbar styling for Firefox */
+html {
+  scrollbar-width: thin; /* Firefox thin scrollbar */
+  scrollbar-color: rgb(194, 225, 246) rgba(255, 255, 255, 0.1); /* Thumb and track colors for Firefox */
+}
+
+/* For Edge */
+@supports (-ms-overflow-style: none) {
+  body {
+    scrollbar-width: auto;
+    scrollbar-color: rgb(194, 225, 246) rgba(255, 255, 255, 0.1);
+  }
+}

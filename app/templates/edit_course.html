@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<div class="form-container edit-course-wrapper">
+  <h1>Edit Course</h1>
+  <form method="POST">
+    <div class="input-field">
+      <label for="title">Course Title:</label>
+      <input type="text" id="title" name="title" value="{{ course.title }}" required />
+    </div>
+    <div class="input-field">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required>{{ course.description }}</textarea>
+    </div>
+    <button type="submit">Update Course</button>
+  </form>
+</div>
+{% endblock %}

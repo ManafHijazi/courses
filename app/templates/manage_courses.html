@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %}
+<div class="course-management-wrapper form-container">
+  <h1>Course Management</h1>
+  <div class="course-management-button">
+    <a href="{{ url_for('admin.add_course') }}" class="add-course-button manage"
+      ><button>Add New Course</button></a
+    >
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for course in courses %}
+      <tr>
+        <td>{{ course.id }}</td>
+        <td class="title-cell">{{ course.title }}</td>
+        <td class="actions-cell">
+          <a href="{{ url_for('admin.edit_course', course_id=course.id) }}"
+            ><button class="edit-button">Edit</button></a
+          >
+          <form action="{{ url_for('admin.delete_course', course_id=course.id) }}" method="POST">
+            <button type="submit" class="delete-button">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

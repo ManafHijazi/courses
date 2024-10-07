@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+<div class="admin-wrapper">
+  <h1>Admin Panel</h1>
+
+  <div class="admin-actions-wrapper">
+    <a href="{{ url_for('admin.add_course') }}"><button>Add New Course</button></a>
+    <a href="{{ url_for('admin.manage_users') }}"><button>Manage Users</button></a>
+    <a href="{{ url_for('admin.manage_courses') }}"><button>Manage Courses</button></a>
+  </div>
+</div>
+{% endblock %}
