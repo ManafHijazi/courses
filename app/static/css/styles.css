@@ -161,6 +161,9 @@ menu li a.active {
 .submit-btn {
   margin-top: 3rem;
 }
+.title-cell {
+  max-width: 15rem;
+}
 .wrapper.signup {
   height: 42rem;
   width: 480px;
@@ -594,6 +597,7 @@ a:hover {
 
 .course-card {
   min-width: 22rem;
+  max-width: 22rem;
   cursor: pointer;
   background: white; /* Transparent with subtle background */
   border-radius: 15px;
@@ -603,6 +607,8 @@ a:hover {
   position: relative;
   text-align: left;
   overflow: hidden;
+  position: relative;
+  min-height: 36rem;
 }
 
 .course-card img {
@@ -618,6 +624,11 @@ a:hover {
   margin: 10px 0;
   text-align: left;
   padding: 0 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: bold;
 }
 
 a {
@@ -655,6 +666,8 @@ a {
   width: 100%;
   justify-content: space-between;
   padding: 1rem;
+  position: absolute;
+  bottom: 1rem;
 }
 .course-card a {
   width: 6rem;
