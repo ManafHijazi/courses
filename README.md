@@ -29,6 +29,5 @@
 - View available courses and watch course videos
 
 Before you begin, ensure you have met the following requirements:
-
 - **Python 3.9+**
 - **Flask** and other necessary libraries (see `requirements.txt` for details)
