@@ -18,17 +18,18 @@ def allowed_file(filename):
 @admin.route('/admin')
 @login_required
 def admin_panel():
-    if not current_user.is_admin:
+    if not current_user.is_admin and not current_user.is_manager:
         flash('Unauthorized access!', 'error')
         return redirect(url_for('main.home'))
     return render_template('admin.html')
 
 
 # Add Course Route
+# Add Course Route
 @admin.route('/admin/add_course', methods=['GET', 'POST'])
 @login_required
 def add_course():
-    if not current_user.is_admin:
+    if not current_user.is_admin and not current_user.is_manager:
         flash('Unauthorized access!', 'error')
         return redirect(url_for('main.home'))
 
@@ -38,8 +39,22 @@ def add_course():
             description = request.form['description']
             image_url = request.form['image_url']
             video_url = request.form['video_url']
+            price = request.form['price']
+            languages = request.form['languages']
+            category = request.form['category']
+            location = request.form['location']
 
-            new_course = Course(title=title, description=description, image_url=image_url, video_url=video_url)
+            new_course = Course(
+                title=title,
+                description=description,
+                image_url=image_url,
+                video_url=video_url,
+                price=price,
+                languages=languages,
+                category=category,
+                location=location,
+                added_by=current_user.id  # Associate the course with the current user
+            )
             db.session.add(new_course)
             db.session.commit()
             flash('Course added successfully!', 'success')
@@ -118,22 +133,41 @@ def edit_user(user_id):
     return render_template('edit_user.html', user=user)
 
 # Manage Courses Route
+# Manage Courses Route
 @admin.route('/manage_courses')
+@login_required
 def manage_courses():
-    courses = Course.query.all()
+    if current_user.is_admin:
+        courses = Course.query.all()  # Admin can see all courses
+    elif current_user.is_manager:
+        courses = Course.query.filter_by(added_by=current_user.id).all()  # Manager sees only their courses
+    else:
+        flash('Unauthorized access!', 'error')
+        return redirect(url_for('main.home'))
+
     return render_template('manage_courses.html', courses=courses)
+
 
 # Edit Course Route
 @admin.route('/edit_course/<int:course_id>', methods=['GET', 'POST'])
+@login_required
 def edit_course(course_id):
     course = Course.query.get_or_404(course_id)
+
+    # Ensure only the course creator or admin can edit the course
+    if not current_user.is_admin and (not current_user.is_manager or course.added_by != current_user.id):
+        flash('Unauthorized access!', 'error')
+        return redirect(url_for('main.home'))
+
     if request.method == 'POST':
         course.title = request.form['title']
         course.description = request.form['description']
         db.session.commit()
         flash('Course updated successfully!', 'success')
         return redirect(url_for('admin.manage_courses'))
+
     return render_template('edit_course.html', course=course)
+
 
 # Delete Course Route
 @admin.route('/delete_course/<int:course_id>', methods=['POST'])

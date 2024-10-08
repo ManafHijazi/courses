@@ -4,3 +4,4 @@ Flask-Bcrypt
 Flask-Login
 gunicorn
 Flask-Migrate
+flask_migrate

@@ -1,14 +1,48 @@
 {% extends 'base.html' %} {% block content %}
-<div class="form-container">
-  <h1>Sign Up</h1>
-  <form action="{{ url_for('auth.signup') }}" method="POST" enctype="multipart/form-data">
-    <input type="text" id="username" name="username" placeholder="Username" required />
-    <input type="text" id="first_name" name="first_name" placeholder="First Name" required />
-    <input type="text" id="last_name" name="last_name" placeholder="Last Name" required />
-    <input type="password" id="password" name="password" placeholder="Password" required />
-    <input type="file" id="profile_picture" name="profile_picture" accept="image/*" />
-    <button type="submit">Sign Up</button>
-    <a href="{{ url_for('auth.login') }}">Already have an account? Login</a>
-  </form>
+<div class="login-wrapper">
+  <div class="wrapper signup">
+    <div class="title">Sign Up Form</div>
+    <form action="{{ url_for('auth.signup') }}" method="POST" enctype="multipart/form-data">
+      <div class="field">
+        <input type="text" id="username" name="username" required />
+        <label for="username">Username</label>
+      </div>
+
+      <div class="field">
+        <input type="text" id="first_name" name="first_name" required />
+        <label for="first_name">First Name</label>
+      </div>
+
+      <div class="field">
+        <input type="text" id="last_name" name="last_name" required />
+        <label for="last_name">Last Name</label>
+      </div>
+
+      <div class="field">
+        <input type="password" id="password" name="password" required />
+        <label for="password">Password</label>
+      </div>
+
+      <div class="field">
+        <input type="file" id="profile_picture" name="profile_picture" accept="image/*" />
+        <label for="profile_picture">Profile Picture</label>
+      </div>
+
+      <div class="checkbox">
+        <div>
+          <input type="checkbox" id="is_manager" name="is_manager" />
+          <label for="is_manager">Sign up as a Manager</label>
+        </div>
+      </div>
+
+      <div class="field signup">
+        <input type="submit" value="Sign Up" />
+      </div>
+
+      <div class="member-login">
+        Already have an account?<a href="{{ url_for('auth.login') }}">Login</a>
+      </div>
+    </form>
+  </div>
 </div>
 {% endblock %}

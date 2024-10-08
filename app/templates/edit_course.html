@@ -1,16 +1,87 @@
 {% extends 'base.html' %} {% block content %}
-<div class="form-container edit-course-wrapper">
-  <h1>Edit Course</h1>
-  <form method="POST">
-    <div class="input-field">
-      <label for="title">Course Title:</label>
-      <input type="text" id="title" name="title" value="{{ course.title }}" required />
-    </div>
-    <div class="input-field">
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" required>{{ course.description }}</textarea>
-    </div>
-    <button type="submit">Update Course</button>
-  </form>
+<div class="add-course-wrapper">
+  <div class="wrapper course">
+    <div class="title">Edit Course</div>
+    <form action="{{ url_for('admin.edit_course', course_id=course.id) }}" method="POST">
+      <div class="wrapper-content">
+        <div class="wrapper-col">
+          <div class="field">
+            <input type="text" id="title" name="title" value="{{ course.title }}" required />
+            <label for="title">Course Title</label>
+          </div>
+
+          <div class="field">
+            <textarea rows="4" id="description" name="description" required>
+{{ course.description }}</textarea
+            >
+            <label for="description">Description</label>
+          </div>
+
+          <div class="field">
+            <input
+              type="text"
+              id="image_url"
+              name="image_url"
+              value="{{ course.image_url }}"
+              required />
+            <label for="image_url">Image URL</label>
+          </div>
+
+          <div class="field">
+            <input
+              type="text"
+              id="video_url"
+              name="video_url"
+              value="{{ course.video_url }}"
+              required />
+            <label for="video_url">Video URL</label>
+          </div>
+        </div>
+
+        <div class="wrapper-col">
+          <div class="field">
+            <input type="number" id="price" name="price" value="{{ course.price }}" required />
+            <label for="price">Course Price</label>
+          </div>
+
+          <div class="field">
+            <input
+              type="text"
+              id="languages"
+              name="languages"
+              value="{{ course.languages }}"
+              required />
+            <label for="languages">Languages</label>
+          </div>
+
+          <div class="field">
+            <input
+              type="text"
+              id="category"
+              name="category"
+              value="{{ course.category }}"
+              required />
+            <label for="category">Category</label>
+          </div>
+
+          <div class="field">
+            <input
+              type="text"
+              id="location"
+              name="location"
+              value="{{ course.location }}"
+              required />
+            <label for="location">Location</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-btn">
+        <div class="field">
+          <input type="submit" value="Update Course" />
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 {% endblock %}
