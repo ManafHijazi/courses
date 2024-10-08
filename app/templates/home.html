@@ -39,7 +39,7 @@
   </div>
   {% else %}
   <p class="no-courses-wrapper">No courses available at the moment. Please check back later!</p>
-  {% endif %} {% if current_user.is_admin %}
+  {% endif %} {% if current_user.is_admin or current_user.is_manager %}
   <a href="{{ url_for('admin.add_course') }}" class="add-course-button"
     ><button>Add New Course</button></a
   >

@@ -48,6 +48,7 @@ def signup():
             first_name = request.form.get('first_name')
             last_name = request.form.get('last_name')
             password = bcrypt.generate_password_hash(request.form.get('password')).decode('utf-8')
+            is_manager = 'is_manager' in request.form  # Check if manager checkbox is checked
 
             # Handling profile picture
             profile_picture = request.files.get('profile_picture')
@@ -60,7 +61,7 @@ def signup():
                 profile_picture_filename = filename  # Store just the filename in the DB
 
             # Create a new user
-            new_user = User(username=username, first_name=first_name, last_name=last_name, password=password, profile_picture=profile_picture_filename)
+            new_user = User(username=username, first_name=first_name, last_name=last_name, password=password, profile_picture=profile_picture_filename, is_manager=is_manager)
             db.session.add(new_user)
             db.session.commit()
 

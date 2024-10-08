@@ -35,7 +35,7 @@
         <li><a href="{{ url_for('main.testimonials') }}">Testimonials</a></li>
         <li><a href="{{ url_for('main.all_courses') }}">Courses</a></li>
 
-        {% if current_user.is_authenticated and current_user.is_admin %}
+        {% if current_user.is_authenticated and current_user.is_admin or current_user.is_manager %}
         <li><a href="{{ url_for('admin.admin_panel') }}">Admin Panel</a></li>
         {% endif %}
       </ul>
@@ -88,7 +88,8 @@
               <li><a href="{{ url_for('main.testimonials') }}">Testimonials</a></li>
               <li><a href="{{ url_for('main.all_courses') }}">Courses</a></li>
 
-              {% if current_user.is_authenticated and current_user.is_admin %}
+              {% if current_user.is_authenticated and current_user.is_admin or
+              current_user.is_manager %}
               <li><a href="{{ url_for('admin.admin_panel') }}">Admin Panel</a></li>
               {% endif %}
             </ul>

@@ -18,7 +18,7 @@ def allowed_file(filename):
 @admin.route('/admin')
 @login_required
 def admin_panel():
-    if not current_user.is_admin:
+    if not current_user.is_admin and not current_user.is_manager:
         flash('Unauthorized access!', 'error')
         return redirect(url_for('main.home'))
     return render_template('admin.html')
@@ -29,7 +29,7 @@ def admin_panel():
 @admin.route('/admin/add_course', methods=['GET', 'POST'])
 @login_required
 def add_course():
-    if not current_user.is_admin:
+    if not current_user.is_admin and not current_user.is_manager:
         flash('Unauthorized access!', 'error')
         return redirect(url_for('main.home'))
 
@@ -133,10 +133,20 @@ def edit_user(user_id):
     return render_template('edit_user.html', user=user)
 
 # Manage Courses Route
+# Manage Courses Route
 @admin.route('/manage_courses')
+@login_required
 def manage_courses():
-    courses = Course.query.all()
+    if current_user.is_admin:
+        courses = Course.query.all()  # Admin can see all courses
+    elif current_user.is_manager:
+        courses = Course.query.filter_by(added_by=current_user.id).all()  # Manager sees only their courses
+    else:
+        flash('Unauthorized access!', 'error')
+        return redirect(url_for('main.home'))
+
     return render_template('manage_courses.html', courses=courses)
+
 
 # Edit Course Route
 @admin.route('/edit_course/<int:course_id>', methods=['GET', 'POST'])
@@ -144,27 +154,17 @@ def manage_courses():
 def edit_course(course_id):
     course = Course.query.get_or_404(course_id)
 
-    if not current_user.is_admin:
+    # Ensure only the course creator or admin can edit the course
+    if not current_user.is_admin and (not current_user.is_manager or course.added_by != current_user.id):
         flash('Unauthorized access!', 'error')
         return redirect(url_for('main.home'))
 
     if request.method == 'POST':
-        try:
-            course.title = request.form['title']
-            course.description = request.form['description']
-            course.image_url = request.form['image_url']
-            course.video_url = request.form['video_url']
-            course.price = float(request.form['price'])  # Ensure the price is a float
-            course.languages = request.form['languages']
-            course.category = request.form['category']
-            course.location = request.form['location']
-
-            db.session.commit()
-            flash('Course updated successfully!', 'success')
-            return redirect(url_for('admin.manage_courses'))
-        except Exception as e:
-            db.session.rollback()
-            flash(f'Error updating course: {e}', 'error')
+        course.title = request.form['title']
+        course.description = request.form['description']
+        db.session.commit()
+        flash('Course updated successfully!', 'success')
+        return redirect(url_for('admin.manage_courses'))
 
     return render_template('edit_course.html', course=course)
 

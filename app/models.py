@@ -9,6 +9,7 @@ class User(db.Model, UserMixin):
     profile_picture = db.Column(db.String(200), nullable=True)
     password = db.Column(db.String(60), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
+    is_manager = db.Column(db.Boolean, default=False)
 
 from app.extensions import db
 from datetime import datetime
@@ -30,5 +31,5 @@ class Course(db.Model):
     added_by = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     added_by_user = db.relationship('User', backref='courses', lazy=True)
 
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)  # Ensure this is in your model
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 

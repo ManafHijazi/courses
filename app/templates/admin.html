@@ -11,7 +11,10 @@
 
   <div class="admin-actions-wrapper">
     <a href="{{ url_for('admin.add_course') }}"><button>Add New Course</button></a>
+    {% if current_user.is_admin %}
     <a href="{{ url_for('admin.manage_users') }}"><button>Manage Users</button></a>
+    {% endif %}
+
     <a href="{{ url_for('admin.manage_courses') }}"><button>Manage Courses</button></a>
   </div>
 </div>
