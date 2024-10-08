@@ -1,6 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 <div class="admin-wrapper">
-  <h1>Admin Panel</h1>
+  <section id="main">
+    <div class="main-content">
+      <div class="main-text courses">
+        <h1>Admin Panel</h1>
+        <p>Controll the whole Mo3eed app.</p>
+      </div>
+    </div>
+  </section>
 
   <div class="admin-actions-wrapper">
     <a href="{{ url_for('admin.add_course') }}"><button>Add New Course</button></a>

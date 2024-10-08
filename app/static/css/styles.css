@@ -7,10 +7,310 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #678ee2, #72dfe6);
+  background: #f2f2f2;
   min-height: 100vh;
   display: block;
   margin: 0;
+}
+
+.login-wrapper {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+
+.navi {
+  width: 100%;
+  display: flex;
+  margin: auto;
+  padding: 1rem 3rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-auth {
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navi img {
+  width: 30px;
+  height: 30px;
+  margin-top: 1rem;
+  border-radius: 100%;
+}
+.user-info {
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+.menu {
+  display: flex;
+  height: 3.5rem;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.menu li a {
+  margin: 0px 4px;
+  font-size: 18px;
+  color: #696969;
+  padding: 5px 10px;
+  position: relative;
+}
+.menu li a::after {
+  width: 0%;
+  left: 50%;
+  content: '';
+  height: 3px;
+  bottom: 0px;
+  position: absolute;
+  border-radius: 2px;
+  transition: all ease 0.3s;
+  background-color: #3647df;
+  transform: translateX(-50%);
+}
+.menu li a:hover::after,
+.menu li a.active::after {
+  width: 30%;
+}
+.menu li a:hover,
+menu li a.active {
+  color: #333333;
+}
+
+.logo {
+  font-size: 2rem;
+  color: #333333;
+  font-weight: 700;
+}
+.logo i {
+  color: #3647df;
+}
+.book-btn {
+  color: #202020;
+  background: linear-gradient(48deg, rgb(174, 181, 254) 0%, rgb(215, 214, 255) 93%);
+  font-weight: 600;
+  width: 150px;
+  height: 45px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  transition: all ease 0.3s;
+}
+.book-btn:hover {
+  transform: scale(1.05);
+}
+
+.member-login {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+::selection {
+  background: #4158d0;
+  color: #fff;
+}
+.wrapper {
+  height: 30rem;
+  width: 380px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+}
+.wrapper.course {
+  height: 32rem;
+  width: 1200px;
+}
+.wrapper.user {
+  height: 24rem;
+  width: 800px;
+}
+.wrapper-content {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+}
+.wrapper-content.field {
+  width: 100%;
+}
+
+.wrapper-col {
+  width: 50%;
+}
+
+.add-course-wrapper {
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.submit-btn {
+  margin-top: 3rem;
+}
+.wrapper.signup {
+  height: 39rem;
+  width: 480px;
+}
+.wrapper .title {
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+.wrapper form {
+  padding: 10px 30px 50px 30px;
+}
+.wrapper form .field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+.wrapper textarea .field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+.wrapper form .field.signup {
+  margin-top: 3rem;
+}
+.wrapper form .field input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.wrapper form .field textarea {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.wrapper form .field input:focus,
+form .field input:valid {
+  border-color: #4158d0;
+}
+.wrapper form .field textarea:focus,
+form .field textarea:valid {
+  border-color: #4158d0;
+}
+.wrapper form .field label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: #999999;
+  font-weight: 400;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+form .field input:focus ~ label,
+form .field textarea:focus ~ label,
+form .field input:valid ~ label,
+form .field textarea:valid ~ label {
+  top: 0%;
+  font-size: 16px;
+  color: #4158d0;
+  background: #fff;
+  transform: translateY(-50%);
+}
+form {
+  font-size: 16px;
+}
+form a {
+  margin: 0;
+  text-align: center;
+}
+form .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 0.5rem;
+}
+
+.checkbox input {
+  cursor: pointer;
+}
+
+form input {
+  width: 15px;
+  height: 15px;
+  background: red;
+}
+form label {
+  color: #262626;
+  user-select: none;
+  width: 5.8rem;
+  height: 20px;
+  padding-left: 5px;
+  text-wrap: nowrap;
+  padding-top: 0.5rem;
+}
+form .pass-link {
+  color: '';
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+form .field input[type='submit'],
+form .field textarea[type='submit'] {
+  color: #fff;
+  border: none;
+  padding-left: 0;
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  transition: all 0.3s ease;
+}
+form .field input[type='submit']:active,
+form .field textarea[type='submit']:active {
+  transform: scale(0.95);
+}
+form .signup-link {
+  color: #262626;
+  margin-top: 20px;
+  text-align: center;
+}
+form .pass-link a,
+form .signup-link a {
+  color: #4158d0;
+  text-decoration: none;
+}
+form .pass-link a:hover,
+form .signup-link a:hover {
+  text-decoration: underline;
 }
 
 .app-title-wrapper {
@@ -19,22 +319,9 @@ body {
   margin-left: 2.5rem;
 }
 
-.home-wrapper {
-  color: white;
-}
-.home-wrapper button {
-  margin-left: 2rem;
-}
-
-.home-wrapper h1 {
-  padding-left: 2rem;
-}
-.home-wrapper p {
-  padding-left: 2rem;
-}
-
 .no-courses-wrapper {
-  margin-top: 1rem;
+  color: #333333;
+  margin-left: 2rem;
 }
 
 .content {
@@ -52,25 +339,8 @@ body {
   margin: 0;
 }
 
-/* Header and Navbar */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  padding: 20px;
-  min-height: 5rem;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 16px;
-}
-
 .admin-wrapper {
-  color: white;
+  color: #333333;
   display: flex;
   flex-direction: column;
 }
@@ -79,6 +349,11 @@ nav a {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-left: 2rem;
+}
+
+.home-wrapper {
+  margin-top: -2rem;
 }
 
 .admin-wrapper button {
@@ -115,46 +390,6 @@ nav a {
 .admin-links {
   margin-left: 15px;
   color: #ff9800;
-}
-
-/* Footer */
-footer {
-  width: 100%;
-  background-color: #333;
-  color: white;
-  padding: 20px 50px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-footer .app-name {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.footer-container {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-footer .footer-links {
-  display: flex;
-  align-items: flex-start;
-  text-align: left;
-  flex-direction: column;
-}
-
-footer .footer-links a {
-  color: white;
-  text-decoration: none;
-  margin-left: 10px;
-}
-
-footer .footer-links a:hover {
-  text-decoration: underline;
 }
 
 /* Form Container (Card) */
@@ -228,44 +463,11 @@ footer .footer-links a:hover {
   font-weight: 700;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #333;
-  padding: 10px;
-}
-nav div {
-  display: flex; /* Ensure links stay on the same line */
-  align-items: center;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-}
-.navbar-right {
-  display: flex;
-  align-items: center;
-}
-.navbar-right img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-.navbar-right span {
-  color: white; /* Make user name white */
-  margin-right: 15px;
-}
-.admin-links {
-  margin-left: 15px;
-  color: #ff9800;
-}
 .add-course-button {
   color: white;
   margin-top: 20px;
   display: inline-block;
+  margin-left: 2rem;
 }
 .add-course-button.manage {
   margin-top: -1rem;
@@ -281,7 +483,7 @@ nav a {
 .snackbar {
   position: fixed;
   bottom: 0;
-  left: 50%;
+  right: 0;
   font-size: 14px;
   transform: translateX(-50%);
   padding: 20px 30px;
@@ -299,40 +501,13 @@ nav a {
   background-color: #f44336;
 }
 
-footer .app-name {
-  font-size: 2rem; /* Bigger, fancier font size */
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-
-footer ul li {
-  margin-bottom: 5px;
-}
-
-footer ul a {
-  color: white;
-  text-decoration: none;
-}
-
-footer ul a:hover {
-  text-decoration: underline;
-}
-
-footer p {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  color: #ccc;
+.buy-btn {
+  z-index: 9;
 }
 
 /* Input Fields */
 input[type='text'],
+input[type='number'],
 input[type='password'],
 input[type='file'],
 textarea,
@@ -349,6 +524,7 @@ select {
 }
 
 input[type='text']:focus,
+input[type='number']:focus,
 input[type='password']:focus,
 textarea:focus,
 select:focus {
@@ -400,11 +576,20 @@ a:hover {
   gap: 20px;
   padding: 20px 0;
   max-height: calc(100vh - 19rem);
-  overflow-y: auto;
+  overflow-x: auto;
   padding: 2rem;
+}
+.course-cards.home {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  padding: 2rem;
+  overflow-x: scroll;
 }
 
 .course-card {
+  min-width: 22rem;
   cursor: pointer;
   background: white; /* Transparent with subtle background */
   border-radius: 15px;
@@ -412,10 +597,8 @@ a:hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(15px); /* Adds a frosted glass effect */
   position: relative;
-  text-align: center;
+  text-align: left;
   overflow: hidden;
-  max-height: 25rem;
-  min-height: 25rem;
 }
 
 .course-card img {
@@ -425,17 +608,12 @@ a:hover {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.course-card h2 {
-  font-size: 1.5rem;
+.course-card h3 {
+  font-size: 1.3rem;
   color: #333;
-  margin: 15px 0;
+  margin: 10px 0;
   text-align: left;
   padding: 0 15px;
-}
-
-.course-card a {
-  margin: 0 !important;
-  text-decoration: none !important;
 }
 
 a {
@@ -447,20 +625,53 @@ a {
   padding: 0 15px;
   font-size: 1rem;
   text-align: left;
-  max-height: 6rem;
-  overflow-y: auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: bold;
 }
 
+.description {
+  margin-bottom: 1rem;
+  font-weight: normal !important;
+}
+
+.added-by {
+  margin-top: 1.5rem;
+}
+
+.added-by span {
+  font-weight: normal !important;
+}
+
+.course-card-action {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+}
 .course-card a {
-  background-color: #5b86e5;
+  width: 6rem;
   color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 30px;
-  margin-top: 20px;
-  display: inline-block;
   font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  background-color: #1b47a3;
+  text-decoration: none !important;
   transition: background-color 0.3s ease;
+}
+.course-card i {
+  font-size: 18px;
+  margin-right: 1rem;
+  color: #1b47a3;
+  width: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .course-card a:hover {
@@ -470,6 +681,15 @@ a {
 .course-card:hover {
   transform: translateY(-10px);
   box-shadow: 0px 16px 30px rgba(0, 0, 0, 0.2);
+}
+
+.course-card-action {
+  font-weight: 500;
+  font-size: 20px;
+  padding-right: 2rem;
+}
+.course-card-action strong {
+  margin-top: 1rem;
 }
 
 .course-card::before {
@@ -503,7 +723,7 @@ a {
 }
 
 .course-management-wrapper th {
-  background-color: #333;
+  background: #4158d0;
   color: white;
 }
 
@@ -565,4 +785,195 @@ html {
     scrollbar-width: auto;
     scrollbar-color: rgb(194, 225, 246) rgba(255, 255, 255, 0.1);
   }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer {
+  width: 100%;
+  background-color: #24262b;
+  padding: 2rem 5rem;
+  align-items: center;
+  color: white;
+}
+
+.footer p {
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-col {
+  width: 50%;
+  padding: 0 15px;
+}
+
+.footer-col h1 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col h1::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 2px;
+  width: 50px;
+  border-radius: 2px;
+  background-color: #3647df;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #bbbbbb;
+  text-decoration: none;
+  font-weight: 300;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}
+
+a:hover::after,
+a.active::after {
+  width: 30%;
+}
+
+a:hover,
+a.active {
+  color: #333333;
+}
+
+/* main*/
+#main {
+  max-width: 1200px;
+  width: 95%;
+  margin: 50px auto;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.main-img {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: linear-gradient(48deg, rgb(174, 181, 254) 0%, rgb(215, 214, 255) 93%);
+}
+
+.main-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.main-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 500px;
+  width: 100%;
+}
+.main-text.courses {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 100%;
+  width: 100%;
+  margin-top: -4rem;
+}
+.main-text.courses p {
+  margin-bottom: -3rem;
+}
+.main-text strong {
+  color: #333333;
+  font-size: 1rem;
+  background-color: #ebf1ff;
+  height: 40px;
+  padding: 0px 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.main-text strong i {
+  margin-right: 5px;
+}
+.main-text h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 4.3rem;
+  margin: 15px 0px;
+  color: #141311;
+}
+.main-text p {
+  color: #696969;
+}
+
+.main-text a {
+  width: 180px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  color: #1f1f1f;
+  border-radius: 10px;
+  font-weight: 600;
+  background: linear-gradient(48deg, rgb(174, 181, 254) 0%, rgb(215, 214, 255) 93%);
 }

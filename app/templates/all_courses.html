@@ -1,22 +1,16 @@
 {% extends 'base.html' %} {% block content %}
-<div class="home-wrapper">
+<div class="courses-wrapper">
   <section id="main">
     <div class="main-content">
-      <div class="main-text">
-        <strong><i class="fa-solid fa-terminal"></i> Welcome to Mo3eed </strong>
-        <h1>Unlock the Power of Tech—Explore, Innovate, Grow!</h1>
-        <p>Enjoy your schedule to learn</p>
-        <a href="#">Book Online</a>
-      </div>
-      <!-- main img -->
-      <div class="main-img">
-        <img src="{{ url_for('static', filename='images/main.png') }}" alt="" />
+      <div class="main-text courses">
+        <h1>Explore All Courses</h1>
+        <p>Find the best courses to enhance your skills</p>
       </div>
     </div>
   </section>
 
   {% if courses %}
-  <div class="course-cards home">
+  <div class="course-cards">
     {% for course in courses %}
     <div class="course-card">
       <img src="{{ course.image_url }}" alt="{{ course.title }}" />
@@ -39,10 +33,6 @@
   </div>
   {% else %}
   <p class="no-courses-wrapper">No courses available at the moment. Please check back later!</p>
-  {% endif %} {% if current_user.is_admin %}
-  <a href="{{ url_for('admin.add_course') }}" class="add-course-button"
-    ><button>Add New Course</button></a
-  >
   {% endif %}
 </div>
 {% endblock %}

@@ -25,6 +25,7 @@ def admin_panel():
 
 
 # Add Course Route
+# Add Course Route
 @admin.route('/admin/add_course', methods=['GET', 'POST'])
 @login_required
 def add_course():
@@ -38,8 +39,22 @@ def add_course():
             description = request.form['description']
             image_url = request.form['image_url']
             video_url = request.form['video_url']
+            price = request.form['price']
+            languages = request.form['languages']
+            category = request.form['category']
+            location = request.form['location']
 
-            new_course = Course(title=title, description=description, image_url=image_url, video_url=video_url)
+            new_course = Course(
+                title=title,
+                description=description,
+                image_url=image_url,
+                video_url=video_url,
+                price=price,
+                languages=languages,
+                category=category,
+                location=location,
+                added_by=current_user.id  # Associate the course with the current user
+            )
             db.session.add(new_course)
             db.session.commit()
             flash('Course added successfully!', 'success')
@@ -125,15 +140,34 @@ def manage_courses():
 
 # Edit Course Route
 @admin.route('/edit_course/<int:course_id>', methods=['GET', 'POST'])
+@login_required
 def edit_course(course_id):
     course = Course.query.get_or_404(course_id)
+
+    if not current_user.is_admin:
+        flash('Unauthorized access!', 'error')
+        return redirect(url_for('main.home'))
+
     if request.method == 'POST':
-        course.title = request.form['title']
-        course.description = request.form['description']
-        db.session.commit()
-        flash('Course updated successfully!', 'success')
-        return redirect(url_for('admin.manage_courses'))
+        try:
+            course.title = request.form['title']
+            course.description = request.form['description']
+            course.image_url = request.form['image_url']
+            course.video_url = request.form['video_url']
+            course.price = float(request.form['price'])  # Ensure the price is a float
+            course.languages = request.form['languages']
+            course.category = request.form['category']
+            course.location = request.form['location']
+
+            db.session.commit()
+            flash('Course updated successfully!', 'success')
+            return redirect(url_for('admin.manage_courses'))
+        except Exception as e:
+            db.session.rollback()
+            flash(f'Error updating course: {e}', 'error')
+
     return render_template('edit_course.html', course=course)
+
 
 # Delete Course Route
 @admin.route('/delete_course/<int:course_id>', methods=['POST'])
