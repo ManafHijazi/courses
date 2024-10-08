@@ -1,5 +1,3 @@
-
-
 <h1 align="center">Mo3eed - A Course Management System</h1>
 
 <p align="center">

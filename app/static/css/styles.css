@@ -165,6 +165,10 @@ menu li a.active {
   height: 42rem;
   width: 480px;
 }
+.wrapper.login {
+  height: 30rem;
+  width: 480px;
+}
 .wrapper .title {
   font-size: 35px;
   font-weight: 600;
