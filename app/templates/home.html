@@ -34,6 +34,14 @@
         course.added_by_user.last_name }}
       </p>
 
+      <form action="{{ url_for('user.toggle_favorite', course_id=course.id) }}" method="POST">
+        <button
+          type="submit"
+          class="heart-btn {% if course in current_user.favorite_courses %}active{% endif %}">
+          <i class="fa-solid fa-heart"></i>
+        </button>
+      </form>
+
       <div class="course-card-action">
         <a href="{{ course.video_url }}" class="buy-btn" target="_blank">Buy</a>
         <strong>${{ course.price }}</strong>

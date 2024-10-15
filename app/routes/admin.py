@@ -65,6 +65,25 @@ def add_course():
 
     return render_template('add_course.html')
 
+# Toggle Manager Role Route
+@admin.route('/admin/toggle_manager_role/<int:user_id>', methods=['POST'])
+@login_required
+def toggle_manager_role(user_id):
+    if not current_user.is_admin:
+        flash('Unauthorized access!', 'error')
+        return redirect(url_for('main.home'))
+
+    user = User.query.get_or_404(user_id)
+    try:
+        # Toggle the is_manager field
+        user.is_manager = not user.is_manager
+        db.session.commit()
+        flash(f'Manager role updated for {user.username}', 'success')
+    except Exception as e:
+        db.session.rollback()
+        flash(f'Error updating manager role: {e}', 'error')
+
+    return redirect(url_for('admin.manage_users'))
 
 # Manage Users Route
 @admin.route('/admin/users')

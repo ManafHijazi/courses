@@ -36,11 +36,32 @@ ul {
   justify-content: space-between;
 }
 
+.profile-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile-info img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  margin-right: 1rem;
+}
+
 .nav-auth {
   gap: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.nav-auth a {
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #333333;
 }
 .navi img {
   width: 30px;
@@ -578,6 +599,12 @@ a:hover {
   overflow-x: auto;
   padding: 2rem;
 }
+.course-cards.favorite {
+  margin-left: -2rem;
+}
+.profile-wrapper {
+  padding-left: 2rem;
+}
 .course-cards.home {
   display: flex;
   align-items: center;
@@ -591,7 +618,6 @@ a:hover {
 .course-card {
   min-width: 22rem;
   max-width: 22rem;
-  cursor: pointer;
   background: white; /* Transparent with subtle background */
   border-radius: 15px;
   box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15); /* Softer shadow */
@@ -1058,7 +1084,7 @@ a.active {
 .workshops-wrapper img {
   width: 100%;
   break-inside: avoid;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   border-radius: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1127,4 +1153,43 @@ a.active {
 .form-container .field input[type='submit']:hover {
   background-color: #45a049;
   transform: translateY(-3px);
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+}
+
+.heart-btn {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 32px;
+  top: 1rem;
+  margin: 0 !important;
+  padding: 0 !important;
+  right: 1rem;
+  cursor: pointer;
+  z-index: 9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.heart-btn:hover {
+  background-color: white !important;
+  transform: scale(1.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.326);
+}
+
+.heart-btn i {
+  color: rgb(199, 199, 199);
+  margin: 0;
+  padding: 0;
+  margin-left: -2px;
+}
+.heart-btn.active i {
+  color: red !important;
 }

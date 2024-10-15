@@ -2,6 +2,7 @@ from flask import Flask
 from app.extensions import db, bcrypt, login_manager
 from flask_migrate import Migrate
 from app.models import User
+from app.routes.user import user
 
 migrate = Migrate()
 
@@ -15,6 +16,8 @@ def create_app():
     app = Flask(__name__, static_folder='static')
     app.config['SECRET_KEY'] = 'your_secret_key'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mo3eed.db'
+
+    app.register_blueprint(user, url_prefix='/user')
 
     db.init_app(app)
     bcrypt.init_app(app)
