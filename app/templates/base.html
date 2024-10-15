@@ -31,9 +31,9 @@
       <ul class="menu">
         <li><a href="{{ url_for('main.home') }}">Home</a></li>
         <li><a href="{{ url_for('main.about') }}">About Us</a></li>
-        <li><a href="{{ url_for('main.destination') }}">Destination</a></li>
-        <li><a href="{{ url_for('main.testimonials') }}">Testimonials</a></li>
         <li><a href="{{ url_for('main.all_courses') }}">Courses</a></li>
+        <li><a href="{{ url_for('main.blogs') }}">Blogs</a></li>
+        <li><a href="{{ url_for('main.contact') }}">Contact Us</a></li>
 
         {% if current_user.is_authenticated and current_user.is_admin or current_user.is_manager %}
         <li><a href="{{ url_for('admin.admin_panel') }}">Admin Panel</a></li>
@@ -84,9 +84,9 @@
             <ul>
               <li><a href="{{ url_for('main.home') }}" class="active">Home</a></li>
               <li><a href="{{ url_for('main.about') }}">About Us</a></li>
-              <li><a href="{{ url_for('main.destination') }}">Destination</a></li>
-              <li><a href="{{ url_for('main.testimonials') }}">Testimonials</a></li>
               <li><a href="{{ url_for('main.all_courses') }}">Courses</a></li>
+              <li><a href="{{ url_for('main.blogs') }}">Blogs</a></li>
+              <li><a href="{{ url_for('main.contact') }}">Contact Us</a></li>
 
               {% if current_user.is_authenticated and current_user.is_admin or
               current_user.is_manager %}

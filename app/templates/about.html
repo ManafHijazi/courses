@@ -1,9 +1,49 @@
 {% extends 'base.html' %} {% block content %}
 <section id="main">
   <div class="main-content">
-    <div class="main-text courses">
-      <h1>About Us</h1>
-      <p>Mo3eed is a platform designed to help users find educational videos and courses.</p>
+    <div class="about-us-wrapper">
+      <div class="main-text about">
+        <h1>About Us</h1>
+        <p>
+          <strong>Our Story</strong> We are Sereen, Hala, and Yousef—three tech enthusiasts brought
+          together by a shared passion for learning and teaching. As students, we realized the power
+          of collaboration and the importance of making knowledge accessible. This inspired us to
+          create an educational website where we share our expertise through courses, videos, and
+          blogs on tech topics.
+        </p>
+        <p>
+          <strong>Our Journey</strong> is more than just a project; it's a reflection of our belief
+          that learning should be engaging, accessible, and collaborative. Weʼre committed to
+          creating content that not only educates but also inspires curiosity and innovation. As we
+          continue to grow, we invite you to join us on this exciting adventure, where every lesson
+          learned is a step toward a brighter, tech-savvy future.
+        </p>
+      </div>
+
+      <div class="team-section" />
+
+      <div class="main-text about">
+        <h1>Meet our team</h1>
+        <div class="team-wrapper">
+          <div class="team-item">
+            <img src="{{ url_for('static', filename='images/sereen.jpg') }}" alt="Sereen Khader" />
+            <h2>Sereen Khader</h2>
+            <h5>Founder Instructor</h5>
+          </div>
+
+          <div class="team-item">
+            <img src="{{ url_for('static', filename='images/hala.jpg') }}" alt="Hala Hazeem" />
+            <h2>Hala Hazeem</h2>
+            <h5>co-founder, Instructor</h5>
+          </div>
+
+          <div class="team-item">
+            <img src="{{ url_for('static', filename='images/yousef.jpg') }}" alt="Yousef Dali" />
+            <h2>Yousef Dali</h2>
+            <h5>co-founder, Relationship Manager</h5>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -6,7 +6,7 @@
         <strong><i class="fa-solid fa-terminal"></i> Welcome to Mo3eed </strong>
         <h1>Unlock the Power of Tech—Explore, Innovate, Grow!</h1>
         <p>Enjoy your schedule to learn</p>
-        <a href="#">Book Online</a>
+        <a href="{{ url_for('main.all_courses') }}">Start learning</a>
       </div>
       <!-- main img -->
       <div class="main-img">
@@ -15,7 +15,11 @@
     </div>
   </section>
 
-  {% if courses %}
+  {% if current_user.is_admin or current_user.is_manager %}
+  <a href="{{ url_for('admin.add_course') }}" class="add-course-button"
+    ><button>Add New Course</button></a
+  >
+  {% endif %} {% if courses %}
   <div class="course-cards home">
     {% for course in courses %}
     <div class="course-card">
@@ -37,10 +41,17 @@
     </div>
     {% endfor %}
   </div>
-  {% endif %} {% if current_user.is_admin or current_user.is_manager %}
-  <a href="{{ url_for('admin.add_course') }}" class="add-course-button"
-    ><button>Add New Course</button></a
-  >
   {% endif %}
+
+  <section id="main">
+    <div class="main-text work"><h1>Some Of Our Workshops</h1></div>
+    <div class="workshops-wrapper">
+      <img src="{{ url_for('static', filename='images/workshop1.jpeg') }}" alt="workshop1" />
+      <img src="{{ url_for('static', filename='images/workshop2.jpeg') }}" alt="workshop2" />
+      <img src="{{ url_for('static', filename='images/workshop5.jpeg') }}" alt="workshop5" />
+      <img src="{{ url_for('static', filename='images/workshop3.jpeg') }}" alt="workshop3" />
+      <img src="{{ url_for('static', filename='images/workshop4.jpeg') }}" alt="workshop4" />
+    </div>
+  </section>
 </div>
 {% endblock %}
