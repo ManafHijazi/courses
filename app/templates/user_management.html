@@ -6,6 +6,7 @@
       <tr>
         <th>ID</th>
         <th>Username</th>
+        <th>Manager</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -14,6 +15,26 @@
       <tr>
         <td>{{ user.id }}</td>
         <td class="username-cell">{{ user.username }}</td>
+        {% if not user.is_admin %}
+        <td>
+          <form action="{{ url_for('admin.toggle_manager_role', user_id=user.id) }}" method="POST">
+            <input
+              type="checkbox"
+              name="is_manager"
+              {%
+              if
+              user.is_manager
+              %}
+              checked
+              {%
+              endif
+              %}
+              onChange="this.form.submit()" />
+          </form>
+        </td>
+        {% else %}
+        <td>-</td>
+        {% endif %}
         <td class="actions-cell">
           <a href="{{ url_for('admin.edit_user', user_id=user.id) }}"
             ><button class="edit-button">Edit</button></a

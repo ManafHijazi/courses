@@ -12,13 +12,13 @@ def home():
 def about():
     return render_template('about.html')
 
-@main.route('/testimonials')
-def testimonials():
-    return render_template('testimonials.html')
+@main.route('/blogs')
+def blogs():
+    return render_template('blogs.html')
 
-@main.route('/destination')
-def destination():
-    return render_template('destination.html')
+@main.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @main.route('/all_courses')
 def all_courses():

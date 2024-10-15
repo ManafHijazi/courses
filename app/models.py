@@ -1,6 +1,12 @@
 from flask_login import UserMixin
 from app.extensions import db
 
+# Association table for user favorites
+favorites = db.Table('favorites',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('course_id', db.Integer, db.ForeignKey('course.id'))
+)
+
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
@@ -10,6 +16,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
     is_manager = db.Column(db.Boolean, default=False)
+    favorite_courses = db.relationship('Course', secondary=favorites, backref=db.backref('liked_by_users', lazy='dynamic'))
 
 from app.extensions import db
 from datetime import datetime
@@ -27,9 +34,7 @@ class Course(db.Model):
     languages = db.Column(db.String(150), nullable=False)
     category = db.Column(db.String(100), nullable=False)
     location = db.Column(db.String(150), nullable=False)
-
     added_by = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     added_by_user = db.relationship('User', backref='courses', lazy=True)
-
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 

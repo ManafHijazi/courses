@@ -31,9 +31,9 @@
       <ul class="menu">
         <li><a href="{{ url_for('main.home') }}">Home</a></li>
         <li><a href="{{ url_for('main.about') }}">About Us</a></li>
-        <li><a href="{{ url_for('main.destination') }}">Destination</a></li>
-        <li><a href="{{ url_for('main.testimonials') }}">Testimonials</a></li>
         <li><a href="{{ url_for('main.all_courses') }}">Courses</a></li>
+        <li><a href="{{ url_for('main.blogs') }}">Blogs</a></li>
+        <li><a href="{{ url_for('main.contact') }}">Contact Us</a></li>
 
         {% if current_user.is_authenticated and current_user.is_admin or current_user.is_manager %}
         <li><a href="{{ url_for('admin.admin_panel') }}">Admin Panel</a></li>
@@ -41,19 +41,21 @@
       </ul>
 
       <div class="nav-auth">
-        {% if current_user.is_authenticated %} {% if current_user.profile_picture %}
-        <img
-          alt="Avatar"
-          src="{{ url_for('static', filename='images/' ~ current_user.profile_picture) }}" />
-        {% else %}
-        <img
-          alt="Default Avatar"
-          src="{{ url_for('static', filename='images/default-avatar.png') }}" />
-        {% endif %}
-        <span class="user-info">
-          {% if current_user.is_admin %} Admin {% else %} {{ current_user.first_name }} {{
-          current_user.last_name }} {% endif %}
-        </span>
+        <a href="{{ url_for('user.profile') }}">
+          {% if current_user.is_authenticated %} {% if current_user.profile_picture %}
+          <img
+            alt="Avatar"
+            src="{{ url_for('static', filename='images/' ~ current_user.profile_picture) }}" />
+          {% else %}
+          <img
+            alt="Default Avatar"
+            src="{{ url_for('static', filename='images/default-avatar.png') }}" />
+          {% endif %}
+          <span class="user-info">
+            {% if current_user.is_admin %} Admin {% else %} {{ current_user.first_name }} {{
+            current_user.last_name }} {% endif %}
+          </span>
+        </a>
         <a class="book-btn" href="{{ url_for('auth.logout') }}">Logout</a>
         {% else %}
 
@@ -84,9 +86,9 @@
             <ul>
               <li><a href="{{ url_for('main.home') }}" class="active">Home</a></li>
               <li><a href="{{ url_for('main.about') }}">About Us</a></li>
-              <li><a href="{{ url_for('main.destination') }}">Destination</a></li>
-              <li><a href="{{ url_for('main.testimonials') }}">Testimonials</a></li>
               <li><a href="{{ url_for('main.all_courses') }}">Courses</a></li>
+              <li><a href="{{ url_for('main.blogs') }}">Blogs</a></li>
+              <li><a href="{{ url_for('main.contact') }}">Contact Us</a></li>
 
               {% if current_user.is_authenticated and current_user.is_admin or
               current_user.is_manager %}

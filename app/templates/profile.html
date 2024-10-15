@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block content %}
+<div class="profile-wrapper">
+  <div class="profile-info">
+    {% if current_user.profile_picture %}
+    <img
+      alt="Profile Picture"
+      class="profile-picture"
+      src="{{ url_for('static', filename='images/' ~ user.profile_picture) }}" />
+    {% else %}
+    <img alt="Default Avatar" src="{{ url_for('static', filename='images/default-avatar.png') }}" />
+    {% endif %}
+    <div>
+      <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+      <p>@{{ user.username }}</p>
+    </div>
+  </div>
+
+  <h2>Favorite Courses</h2>
+  {% if favorite_courses %}
+  <div class="course-cards favorite">
+    {% for course in favorite_courses %}
+    <div class="course-card">
+      <img src="{{ course.image_url }}" alt="{{ course.title }}" />
+      <h3>{{ course.title }}</h3>
+      <p>{{ course.description }}</p>
+      <p><i class="fa-solid fa-laptop-code"></i> {{ course.languages }}</p>
+      <p><i class="fa-solid fa-building"></i> {{ course.category }}</p>
+      <p><i class="fa-solid fa-tags"></i> {{ course.location }}</p>
+      <form action="{{ url_for('user.toggle_favorite', course_id=course.id) }}" method="POST">
+        <button
+          type="submit"
+          class="heart-btn {% if course in current_user.favorite_courses %}active{% endif %}">
+          <i class="fa-solid fa-heart"></i>
+        </button>
+      </form>
+      <div class="course-card-action">
+        <a href="{{ course.video_url }}" class="buy-btn" target="_blank">Buy</a>
+        <strong>${{ course.price }}</strong>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>No favorite courses added yet.</p>
+  {% endif %}
+</div>
+{% endblock %}
